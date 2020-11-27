@@ -1,0 +1,103 @@
+<input type="number" id="eng" placeholder="English" onkeyup="calc()">
+<input type="number" id="urdu" placeholder="Urdu" onkeyup="calc()">
+<input type="number" id="math" placeholder="Math" onkeyup="calc()">
+<input type="number" id="phy" placeholder="Physics" onkeyup="calc()">
+<input type="number" id="chm" placeholder="Chemistry" onkeyup="calc()">
+
+<h1>Obtained Marks: <span id="om">0.00</span></h1>
+<h1>Total Marks: <span id="tm">500</span></h1>
+<h1>Percentage: <span id="pr">0.00</span></h1>
+<h1>Grade: <span id="gr">0.00</span></h1>
+<h1>Fail:  <span id="fl"></span></h1>
+
+<script>
+function calc(){
+eng = document.getElementById("eng").value;
+urdu = document.getElementById("urdu").value;
+math = document.getElementById("math").value;
+phy = document.getElementById("phy").value;
+chm = document.getElementById("chm").value;
+
+obb = +eng + +urdu + +math + +phy + +chm;
+par = (obb/500)*100;
+
+document.getElementById("om").innerHTML=obb;
+document.getElementById("pr").innerHTML=par;
+
+
+
+if(par>=80){
+grd = "A1";
+}else if(par>=70){
+grd = "A";
+}else if(par>=60){
+grd = "B";
+}else if(par==50){
+grd = "C";
+}else if(par<50){
+grd = "Fail";
+}
+
+document.getElementById("gr").innerHTML=grd;
+
+
+
+
+var fs = "";
+if(eng<30){
+fs += "English,";
+}
+
+if(urdu<30){
+fs += "Urdu,";
+}
+
+if(math<30){
+fs += "Math,";
+}
+
+
+if(chm<30){
+fs += "Chemistry,";
+}
+
+if(phy<30){
+fs += "Physics,";
+}
+
+
+document.getElementById("fl").innerHTML=fs;
+
+if(math>100){
+window.alert("Marks is greater than 100");
+ document.getElementById("math").value="";
+ calc();
+}
+if(eng>100){
+window.alert("Marks is greater than 100");
+ document.getElementById("eng").value="";
+}
+if(urdu>100){
+window.alert("Marks is greater than 100");
+ document.getElementById("eng").value="";
+}
+if(phy>100){
+window.alert("Marks is greater than 100");
+ document.getElementById("eng").value="";
+}
+if(chm>100){
+window.alert("Marks is greater than 100");
+ document.getElementById("eng").value="";
+}
+
+/*
+ if(eng>30 || eng==""){
+document.getElementById("fl").innerHTML="No";
+}else if(eng<30){
+document.getElementById("fl").innerHTML="English";
+}
+*/
+
+
+}
+</script>
