@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>Login Form</title>
+
+<style>
+.one {
+	border:none;
+	border-radius:5px;
+	position:relative;
+	width:15%;
+	background-color:#babab1;
+	padding: 90px ;
+	left:33%;
+	margin-top:9%;
+}
+
+.img {
+	border-radius:50%;
+	width:70%;
+	position:relative;
+	left:20px;
+}
+
+.two{
+	background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(pic2.jpg);
+	background-size:cover;
+}
+
+.text{
+	padding:10px;
+	border-radius:5px;
+}
+
+.pass{
+	padding:10px;
+	border-radius:5px;
+}
+
+.sub{
+	border-radius:5px;
+	border:1px solid grey;
+	padding:5px;
+	width:40%;
+	color:#989c99;
+	background-color:#626663;
+	cursor:pointer;
+	position:relative;
+	left:50px;
+}
+
+.mesg{
+	color:#989c99;
+}
+
+.mesg a{
+	color:#626663;
+	text-decoration:none;
+}
+
+#form2{
+	display:none;
+}
+</style>
+
+<script>
+function func1(){
+username = document.getElementById("username").value;
+password = document.getElementById("password").value;
+
+var upass = [
+	{
+		username : "Admin",
+		password : "admin"
+	},
+	{
+		username : "Afaque",
+		password : "afaque"
+	},
+	{
+		username : "Awais",
+		password : "awais"
+	},
+	{
+		username : "Hasan",
+		password : "hasan"
+	},
+	{
+		username : "Bilal",
+		password : "bilal"
+	}
+  ]
+ for(i=0 ; i<=upass.length ; i++){ 
+if (username == upass[i].username && password == upass[i].password){
+	return true;
+ } 
+else {
+	alert("Invalid username or password");
+	return false;
+ }
+ }
+ /*
+if (password.value.length<5){
+  alert("Password too short");
+	return false;
+ }else{
+	 true;
+ }*/
+}
+
+$(document).ready(function(){
+	$(".regis").click(function(){
+		$('#form2').show();
+	});
+});
+</script>
+
+</head>
+<body class="two">
+
+<div class="one" >
+	<img src="pic3.jpg" class="img">
+
+<form class="form" method="post" name="form1" onsubmit="return func1()">
+<br/><br/>
+	<input type="text" placeholder="Username" class="text" id="username" required>
+<br/><br/>
+	<input type="password" placeholder="Password" class="pass" id="password" required>
+<br/><br/>
+	<input type="submit" id="sub" class="sub">
+			<p class="mesg">Not Registered ? <a href="#" class="regis">Register</a></p>
+
+</form>
+
+
+<form name="form2" method="post" id="form2">
+<br/><br/>
+	<input type="text" placeholder="Username" class="text" id="username" required>
+<br/><br/>
+	<input type="password" placeholder="Password" class="pass" id="password" required>
+<br/><br/>
+	<input type="email" placeholder="E-mail" class="pass" id="email" required>
+<br/><br/>
+	<button class="sub">Create</button>
+		<p class="mesg">Already Registered ?<a href="#">Login</a></p>
+</form>
+</div>
+
+</body>
+</html>
